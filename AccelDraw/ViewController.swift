@@ -14,6 +14,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     @IBOutlet weak var labelYAcceleration: UILabel!
     @IBOutlet weak var labelZAcceleration: UILabel!
     @IBOutlet weak var drawingView: UIImageView!
+    @IBOutlet weak var cursorView: UIImageView!
 
     var motionManager = CMMotionManager()
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     var blue = CGFloat(0.0)
     var brushSize = CGFloat(5.0)
     
-    var userTouchingDrawingView = false
+    var userTouchingCursorView = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,9 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             
             nextPoint = self.keepInFrame(nextPoint)
             
-            if self.userTouchingDrawingView {
+            self.drawCursor(nextPoint)
+            
+            if self.userTouchingCursorView {
                 self.drawLine(fromPoint: self.currPoint, toPoint: nextPoint)
             }
             
@@ -67,6 +70,24 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             point.y = -self.drawingView.frame.height/2.0
         }
         return point
+    }
+    
+    func drawCursor(point: CGPoint) {
+        UIGraphicsBeginImageContext(cursorView.frame.size)
+        
+        let origin = CGPointMake(cursorView.frame.width/2.0, cursorView.frame.height/2.0)
+        let rect = CGRectMake(point.x+origin.x-brushSize/2.0,
+                              point.y+origin.y-brushSize/2.0,
+                              CGFloat(brushSize), CGFloat(brushSize))
+        
+        let path = UIBezierPath(ovalInRect: rect)
+        
+        UIColor.grayColor().setStroke()
+        
+        path.stroke()
+        
+        cursorView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
     }
     
     func drawLine(fromPoint a: CGPoint, toPoint b: CGPoint) {
@@ -98,8 +119,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // paintin'
         let touch: UITouch? = touches.first
-        if touch?.view == drawingView {
-            userTouchingDrawingView = true
+        if touch?.view == cursorView {
+            userTouchingCursorView = true
         }
         super.touchesBegan(touches, withEvent: event)
     }
@@ -107,8 +128,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // not paintin'
         let touch: UITouch? = touches.first
-        if touch?.view == drawingView {
-            userTouchingDrawingView = false
+        if touch?.view == cursorView {
+            userTouchingCursorView = false
         }
         super.touchesEnded(touches, withEvent: event)
     }

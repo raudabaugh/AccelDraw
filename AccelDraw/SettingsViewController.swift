@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
         redSlider.value = Float(red)
         greenSlider.value = Float(green)
         blueSlider.value = Float(blue)
+        brushSizeSlider.value = Float(brushSize)
         
         drawBrushPreview()
     }

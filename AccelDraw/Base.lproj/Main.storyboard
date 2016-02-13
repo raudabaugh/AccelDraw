@@ -49,6 +49,9 @@
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-nt-qgk">
                                 <rect key="frame" x="20" y="57" width="560" height="497"/>
                             </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9CK-uB-Y4p" userLabel="Cursor View">
+                                <rect key="frame" x="20" y="57" width="560" height="497"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnY-Rl-TZo">
                                 <rect key="frame" x="20" y="562" width="273" height="30"/>
                                 <state key="normal" title="Clear"/>
@@ -72,12 +75,15 @@
                             <constraint firstAttribute="leadingMargin" secondItem="Ng4-nt-qgk" secondAttribute="leading" id="8sw-0T-25V"/>
                             <constraint firstItem="wAo-B8-tTv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="9y0-UZ-VDk"/>
                             <constraint firstItem="wAo-B8-tTv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AJE-IB-U1d"/>
+                            <constraint firstItem="9CK-uB-Y4p" firstAttribute="centerY" secondItem="Ng4-nt-qgk" secondAttribute="centerY" id="AgL-UI-VbR"/>
                             <constraint firstItem="hVu-JZ-OPb" firstAttribute="leading" secondItem="rLy-Kj-chk" secondAttribute="trailing" constant="8" id="DAV-Ne-3qn"/>
+                            <constraint firstItem="9CK-uB-Y4p" firstAttribute="height" secondItem="Ng4-nt-qgk" secondAttribute="height" id="EDA-qY-MY5"/>
                             <constraint firstItem="SOL-3N-ku1" firstAttribute="width" secondItem="EnY-Rl-TZo" secondAttribute="width" id="FhA-I3-3od"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hVu-JZ-OPb" secondAttribute="trailing" constant="6" id="G75-VE-NaM"/>
                             <constraint firstItem="rLy-Kj-chk" firstAttribute="width" secondItem="wAo-B8-tTv" secondAttribute="width" id="JW0-OD-f5b"/>
                             <constraint firstItem="rLy-Kj-chk" firstAttribute="leading" secondItem="wAo-B8-tTv" secondAttribute="trailing" constant="14" id="Plp-Tq-a1R"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SOL-3N-ku1" secondAttribute="bottom" constant="8" id="QVt-FE-VXz"/>
+                            <constraint firstItem="9CK-uB-Y4p" firstAttribute="width" secondItem="Ng4-nt-qgk" secondAttribute="width" id="S4V-Uc-Eqk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SOL-3N-ku1" secondAttribute="trailing" id="W2g-62-Eub"/>
                             <constraint firstItem="hVu-JZ-OPb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ayS-v2-ug0"/>
                             <constraint firstItem="EnY-Rl-TZo" firstAttribute="top" secondItem="Ng4-nt-qgk" secondAttribute="bottom" constant="8" id="cYc-E6-dGv"/>
@@ -88,6 +94,7 @@
                             <constraint firstItem="EnY-Rl-TZo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fxU-km-uuY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ng4-nt-qgk" secondAttribute="trailing" id="gA2-Tf-Esw"/>
                             <constraint firstItem="SOL-3N-ku1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hT9-Nh-ZrH"/>
+                            <constraint firstItem="9CK-uB-Y4p" firstAttribute="centerX" secondItem="Ng4-nt-qgk" secondAttribute="centerX" id="lvf-I1-Hv9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EnY-Rl-TZo" secondAttribute="bottom" constant="8" id="ns5-np-VyD"/>
                             <constraint firstItem="rLy-Kj-chk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="rnA-nv-u37"/>
                             <constraint firstItem="SOL-3N-ku1" firstAttribute="leading" secondItem="EnY-Rl-TZo" secondAttribute="trailing" constant="14" id="zmA-z1-6Qc"/>
@@ -100,6 +107,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="cursorView" destination="9CK-uB-Y4p" id="emf-Fy-6Oo"/>
                         <outlet property="drawingView" destination="Ng4-nt-qgk" id="eR4-Hw-QgA"/>
                         <outlet property="labelXAcceleration" destination="wAo-B8-tTv" id="6J0-nF-MQU"/>
                         <outlet property="labelYAcceleration" destination="rLy-Kj-chk" id="A63-hu-8Rt"/>
