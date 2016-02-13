@@ -12,6 +12,7 @@
 		227FE7971C64167D0096F8D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227FE7951C64167D0096F8D7 /* Main.storyboard */; };
 		227FE7991C64167D0096F8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 227FE7981C64167D0096F8D7 /* Assets.xcassets */; };
 		227FE79C1C64167D0096F8D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227FE79A1C64167D0096F8D7 /* LaunchScreen.storyboard */; };
+		22908F041C643980001C1698 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22908F031C643980001C1698 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		227FE7981C64167D0096F8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		227FE79B1C64167D0096F8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		227FE79D1C64167D0096F8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22908F031C643980001C1698 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				227FE7911C64167D0096F8D7 /* AppDelegate.swift */,
+				22908F031C643980001C1698 /* SettingsViewController.swift */,
 				227FE7931C64167D0096F8D7 /* ViewController.swift */,
 				227FE7951C64167D0096F8D7 /* Main.storyboard */,
 				227FE7981C64167D0096F8D7 /* Assets.xcassets */,
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					227FE78D1C64167D0096F8D7 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4496ANCXMN;
 					};
 				};
 			};
@@ -137,6 +141,7 @@
 			files = (
 				227FE7941C64167D0096F8D7 /* ViewController.swift in Sources */,
 				227FE7921C64167D0096F8D7 /* AppDelegate.swift in Sources */,
+				22908F041C643980001C1698 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +254,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AccelDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.AccelDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +268,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AccelDraw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.cornell.tech.AccelDraw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +297,7 @@
 				227FE7A21C64167D0096F8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
