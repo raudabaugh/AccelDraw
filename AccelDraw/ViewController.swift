@@ -24,6 +24,8 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     var blue = CGFloat(0.0)
     var brushSize = CGFloat(5.0)
     
+    var userTouchingDrawingView = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,7 +45,9 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             
             nextPoint = self.keepInFrame(nextPoint)
             
-            self.drawLine(fromPoint: self.currPoint, toPoint: nextPoint)
+            if self.userTouchingDrawingView {
+                self.drawLine(fromPoint: self.currPoint, toPoint: nextPoint)
+            }
             
             self.currPoint = nextPoint
         }
@@ -91,9 +95,22 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         currPoint = CGPointMake(0, 0)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // paintin'
+        let touch: UITouch? = touches.first
+        if touch?.view == drawingView {
+            userTouchingDrawingView = true
+        }
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // not paintin'
+        let touch: UITouch? = touches.first
+        if touch?.view == drawingView {
+            userTouchingDrawingView = false
+        }
+        super.touchesEnded(touches, withEvent: event)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
