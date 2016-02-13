@@ -22,6 +22,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     var red = CGFloat(1.0)
     var green = CGFloat(0.0)
     var blue = CGFloat(0.0)
+    var brushSize = CGFloat(5.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +76,7 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         CGContextMoveToPoint(context, a.x+origin.x, a.y+origin.y)
         CGContextAddLineToPoint(context, b.x+origin.x, b.y+origin.y)
         
-        CGContextSetLineWidth(context, 5.0)
+        CGContextSetLineWidth(context, brushSize)
         CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
         CGContextSetLineCap(context, .Round)
         
@@ -96,13 +97,15 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         settingsView.red = red
         settingsView.green = green
         settingsView.blue = blue
+        settingsView.brushSize = brushSize
         settingsView.delegate = self
     }
     
-    func settingsViewControllerFinished(red: CGFloat, green: CGFloat, blue: CGFloat) {
+    func settingsViewControllerFinished(red: CGFloat, green: CGFloat, blue: CGFloat, brushSize: CGFloat) {
         self.red = red
         self.green = green
         self.blue = blue
+        self.brushSize = brushSize
     }
 
 
