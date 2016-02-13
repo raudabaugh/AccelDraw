@@ -40,10 +40,28 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
             nextPoint.x += self.currPoint.x
             nextPoint.y += self.currPoint.y
             
+            nextPoint = self.keepInFrame(nextPoint)
+            
             self.drawLine(fromPoint: self.currPoint, toPoint: nextPoint)
             
             self.currPoint = nextPoint
         }
+    }
+    
+    func keepInFrame(var point: CGPoint) -> CGPoint {
+        if point.x > self.drawingView.frame.width/2.0 {
+            point.x = self.drawingView.frame.width/2.0
+        }
+        else if point.x < -self.drawingView.frame.width/2.0 {
+            point.x = -self.drawingView.frame.width/2.0
+        }
+        if point.y > self.drawingView.frame.height/2.0 {
+            point.y = self.drawingView.frame.height/2.0
+        }
+        else if point.y < -self.drawingView.frame.height/2.0 {
+            point.y = -self.drawingView.frame.height/2.0
+        }
+        return point
     }
     
     func drawLine(fromPoint a: CGPoint, toPoint b: CGPoint) {
