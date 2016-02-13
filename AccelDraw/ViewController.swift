@@ -86,6 +86,11 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
         UIGraphicsEndImageContext()
     }
 
+    @IBAction func clearPressed(sender: AnyObject) {
+        drawingView.image = nil
+        currPoint = CGPointMake(0, 0)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
