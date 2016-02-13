@@ -118,11 +118,22 @@ class ViewController: UIViewController, SettingsViewControllerDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // paintin'
-        let touch: UITouch? = touches.first
-        if touch?.view == cursorView {
-            userTouchingCursorView = true
+        if let touch = touches.first {
+            if touch.view == cursorView {
+                userTouchingCursorView = true
+                brushSize = 120.0*touch.force/touch.maximumPossibleForce
+            }
         }
         super.touchesBegan(touches, withEvent: event)
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            if touch.view == cursorView {
+                brushSize = 120.0*touch.force/touch.maximumPossibleForce
+            }
+        }
+        super.touchesMoved(touches, withEvent: event)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
